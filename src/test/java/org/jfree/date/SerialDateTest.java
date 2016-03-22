@@ -163,10 +163,13 @@ public class SerialDateTest extends TestCase {
      * result depends on the Locale so this test needs to be modified.
      */
     public void testWeekdayCodeToString() {
-
-        final String test = SerialDate.weekdayCodeToString(SerialDate.SATURDAY);
-        assertEquals("Saturday", test);
-
+        assertEquals("Sunday", weekdayCodeToString(SUNDAY));
+        assertEquals("Monday", weekdayCodeToString(MONDAY));
+        assertEquals("Tuesday", weekdayCodeToString(TUESDAY));
+        assertEquals("Wednesday", weekdayCodeToString(WEDNESDAY));
+        assertEquals("Thursday", weekdayCodeToString(THURSDAY));
+        assertEquals("Friday", weekdayCodeToString(FRIDAY));
+        assertEquals("Saturday", weekdayCodeToString(SATURDAY));
     }
 
     /**
