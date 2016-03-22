@@ -375,4 +375,11 @@ public class SerialDateTest extends TestCase {
         //assertEquals(SUNDAY,stringToWeekdayCode("SUNDAY"));
         //assertEquals(SUNDAY, stringToWeekdayCode("sun"));
     }
+
+    public void testIsValidMonthCode() throws Exception {
+        for (int i = 1; i <= 12; i++)
+            assertTrue(isValidMonthCode(i));
+        assertFalse(isValidMonthCode(0));
+        assertFalse(isValidMonthCode(13));
+    }
 }
