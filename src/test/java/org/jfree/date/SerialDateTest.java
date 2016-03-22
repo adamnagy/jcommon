@@ -492,6 +492,18 @@ public class SerialDateTest extends TestCase {
             fail("Invalid Month Code should throw exception");
         } catch (IllegalArgumentException e) {
         }
+
+        try {
+            monthCodeToQuarter(0);
+            fail("Invalid Month Code should throw exception");
+        } catch (IllegalArgumentException e) {
+        }
+
+        try {
+            monthCodeToQuarter(13);
+            fail("Invalid Month Code should throw exception");
+        } catch (IllegalArgumentException e) {
+        }
     }
 
     public void testMonthCodeToString() throws Exception {
