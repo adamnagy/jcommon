@@ -46,6 +46,8 @@
 
 package org.jfree.date;
 
+import static org.jfree.date.SerialDate.*;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInput;
@@ -315,5 +317,12 @@ public class SerialDateTest extends TestCase {
         assertEquals(30, d4.getDayOfMonth());
         assertEquals(7, d4.getMonth());
         assertEquals(2004, d4.getYYYY());
+    }
+
+    public void testIsValidWeekdayCode() throws Exception {
+        for (int day = 1; day <= 7; day++)
+            assertTrue(isValidWeekdayCode(day));
+        assertFalse(isValidWeekdayCode(0));
+        assertFalse(isValidWeekdayCode(8));
     }
 }
