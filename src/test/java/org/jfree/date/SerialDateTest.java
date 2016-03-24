@@ -514,4 +514,11 @@ public class SerialDateTest extends TestCase {
         } catch (IllegalArgumentException e) {
         }
     }
+
+    public void testIsValidWeekInMonthCode() throws Exception {
+        for (int w = 0; w <= 4; w++) {
+            assertTrue(isValidWeekInMonthCode(w));
+        }
+        assertFalse(isValidWeekInMonthCode(5));
+    }
 }
