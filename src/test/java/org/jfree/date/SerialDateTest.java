@@ -521,4 +521,19 @@ public class SerialDateTest extends TestCase {
         }
         assertFalse(isValidWeekInMonthCode(5));
     }
+
+    public void testIsLeapYear() throws Exception {
+        assertFalse(isLeapYear(1900));
+        assertFalse(isLeapYear(1901));
+        assertFalse(isLeapYear(1902));
+        assertFalse(isLeapYear(1903));
+        assertTrue(isLeapYear(1904));
+        assertTrue(isLeapYear(1908));
+        assertFalse(isLeapYear(1955));
+        assertTrue(isLeapYear(1964));
+        assertTrue(isLeapYear(1980));
+        assertTrue(isLeapYear(2000));
+        assertFalse(isLeapYear(2001));
+        assertFalse(isLeapYear(2100));
+    }
 }
