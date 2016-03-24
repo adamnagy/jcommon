@@ -380,8 +380,8 @@ public class SerialDateTest extends TestCase {
     /**
      * Miscellaneous tests for the addMonths() method.
      */
-    public void testAddMonths() {
-        SerialDate d1 = SerialDate.createInstance(31, 5, 2004);
+    public void testAddMonths() throws Exception {
+/*TODO  SerialDate d1 = SerialDate.createInstance(31, 5, 2004);
         
         SerialDate d2 = SerialDate.addMonths(1, d1);
         assertEquals(30, d2.getDayOfMonth());
@@ -396,7 +396,19 @@ public class SerialDateTest extends TestCase {
         SerialDate d4 = SerialDate.addMonths(1, SerialDate.addMonths(1, d1));
         assertEquals(30, d4.getDayOfMonth());
         assertEquals(7, d4.getMonth());
-        assertEquals(2004, d4.getYYYY());
+        assertEquals(2004, d4.getYYYY());*/
+
+        assertEquals(d(1, FEBRUARY, 1900), addMonths(1, d(1, JANUARY, 1900)));
+        assertEquals(d(28, FEBRUARY, 1900), addMonths(1, d(31, JANUARY, 1900)));
+        assertEquals(d(28, FEBRUARY, 1900), addMonths(1, d(30, JANUARY, 1900)));
+        assertEquals(d(28, FEBRUARY, 1900), addMonths(1, d(29, JANUARY, 1900)));
+        assertEquals(d(28, FEBRUARY, 1900), addMonths(1, d(28, JANUARY, 1900)));
+        assertEquals(d(27, FEBRUARY, 1900), addMonths(1, d(27, JANUARY, 1900)));
+
+        assertEquals(d(30, JUNE, 1900), addMonths(5, d(31, JANUARY, 1900)));
+        assertEquals(d(30, JUNE, 1901), addMonths(17, d(31, JANUARY, 1900)));
+
+        assertEquals(d(29, FEBRUARY, 1904), addMonths(49, d(31, JANUARY, 1900)));
     }
 
     public void testIsValidWeekdayCode() throws Exception {
@@ -582,4 +594,6 @@ public class SerialDateTest extends TestCase {
     private static SpreadsheetDate d(int day, int month, int year) {
         return new SpreadsheetDate(day, month, year);
     }
+
+    
 }
