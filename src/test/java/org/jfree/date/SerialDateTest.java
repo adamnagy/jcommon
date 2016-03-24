@@ -54,6 +54,7 @@ import java.io.ObjectInput;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
+import java.util.GregorianCalendar;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
@@ -745,5 +746,12 @@ public class SerialDateTest extends TestCase {
     public void testCreateInstanceFromSerial() throws Exception {
         assertEquals(d(1, JANUARY, 1900),createInstance(2));
         assertEquals(d(1, JANUARY, 1901), createInstance(367));
+    }
+
+    public void testCreateInstanceFromJavaDate() throws Exception {
+        assertEquals(d(1, JANUARY, 1900),
+            createInstance(new GregorianCalendar(1900,0,1).getTime()));
+        assertEquals(d(1, JANUARY, 2006),
+            createInstance(new GregorianCalendar(2006,0,1).getTime()));
     }
 }
