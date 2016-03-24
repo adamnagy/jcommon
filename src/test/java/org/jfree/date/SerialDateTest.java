@@ -554,4 +554,20 @@ public class SerialDateTest extends TestCase {
         assertEquals(97, leapYearCount(2301));
         assertEquals(122, leapYearCount(2401));
     }
+
+    public void testLastDayOfMonth() throws Exception {
+        assertEquals(31, lastDayOfMonth(JANUARY, 1901));
+        assertEquals(28, lastDayOfMonth(FEBRUARY, 1901));
+        assertEquals(31, lastDayOfMonth(MARCH, 1901));
+        assertEquals(30, lastDayOfMonth(APRIL, 1901));
+        assertEquals(31, lastDayOfMonth(MAY, 1901));
+        assertEquals(30, lastDayOfMonth(JUNE, 1901));
+        assertEquals(31, lastDayOfMonth(JULY, 1901));
+        assertEquals(31, lastDayOfMonth(AUGUST, 1901));
+        assertEquals(30, lastDayOfMonth(SEPTEMBER, 1901));
+        assertEquals(31, lastDayOfMonth(OCTOBER, 1901));
+        assertEquals(30, lastDayOfMonth(NOVEMBER, 1901));
+        assertEquals(31, lastDayOfMonth(DECEMBER, 1901));
+        assertEquals(29, lastDayOfMonth(FEBRUARY, 1904));
+    }
 }
