@@ -741,4 +741,9 @@ public class SerialDateTest extends TestCase {
         assertEquals(1900,date.getYYYY());
         assertEquals(2,date.toSerial());
     }
+
+    public void testCreateInstanceFromSerial() throws Exception {
+        assertEquals(d(1, JANUARY, 1900),createInstance(2));
+        assertEquals(d(1, JANUARY, 1901), createInstance(367));
+    }
 }
