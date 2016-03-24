@@ -570,4 +570,16 @@ public class SerialDateTest extends TestCase {
         assertEquals(31, lastDayOfMonth(DECEMBER, 1901));
         assertEquals(29, lastDayOfMonth(FEBRUARY, 1904));
     }
+
+    public void testAddDays() throws Exception {
+        SerialDate newYears = d(1, JANUARY, 1900);
+        assertEquals(d(2, JANUARY, 1900), addDays(1, newYears));
+        assertEquals(d(1, FEBRUARY, 1900), addDays(31, newYears));
+        assertEquals(d(1, JANUARY, 1901), addDays(365, newYears));
+        assertEquals(d(31, DECEMBER, 1904), addDays(5 * 365, newYears));
+    }
+
+    private static SpreadsheetDate d(int day, int month, int year) {
+        return new SpreadsheetDate(day, month, year);
+    }
 }
