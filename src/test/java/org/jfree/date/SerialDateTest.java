@@ -733,4 +733,12 @@ public class SerialDateTest extends TestCase {
         // } catch (IllegalArgumentException e) {
         // }
     }
+
+    public void testCreateInstanceFromDDMMYYY() throws Exception {
+        SerialDate date = createInstance(1, JANUARY, 1900);
+        assertEquals(1,date.getDayOfMonth());
+        assertEquals(JANUARY,date.getMonth());
+        assertEquals(1900,date.getYYYY());
+        assertEquals(2,date.toSerial());
+    }
 }
