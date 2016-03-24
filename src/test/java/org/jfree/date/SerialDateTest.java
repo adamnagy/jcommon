@@ -601,4 +601,18 @@ public class SerialDateTest extends TestCase {
         assertEquals(d(28, FEBRUARY, 1905), addYears(1, d(28, FEBRUARY, 1904)));
         assertEquals(d(28, FEBRUARY, 1904), addYears(1, d(28, FEBRUARY, 1903)));
     }
+
+    public void testGetPreviousDayOfWeek() throws Exception {
+        assertEquals(d(24, FEBRUARY, 2006), getPreviousDayOfWeek(FRIDAY, d(1, MARCH, 2006)));
+        assertEquals(d(22, FEBRUARY, 2006), getPreviousDayOfWeek(WEDNESDAY, d(1, MARCH, 2006)));
+        assertEquals(d(29, FEBRUARY, 2004), getPreviousDayOfWeek(SUNDAY, d(3, MARCH, 2004)));
+        assertEquals(d(29, DECEMBER, 2004), getPreviousDayOfWeek(WEDNESDAY, d(5, JANUARY, 2005)));
+
+        try {
+            getPreviousDayOfWeek(-1, d(1, JANUARY, 2006));
+            fail("Invalid day of week code should throw exception");
+        } catch (IllegalArgumentException e) {
+        }
+    }
+
 }
