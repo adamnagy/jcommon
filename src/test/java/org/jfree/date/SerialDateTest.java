@@ -708,4 +708,17 @@ public class SerialDateTest extends TestCase {
         assertEquals(d(29, FEBRUARY, 2008), d.getEndOfCurrentMonth(d(1, FEBRUARY, 2008)));
     }
 
+    public void testWeekInMonthToString() throws Exception {
+        assertEquals("First",weekInMonthToString(FIRST_WEEK_IN_MONTH));
+        assertEquals("Second",weekInMonthToString(SECOND_WEEK_IN_MONTH));
+        assertEquals("Third",weekInMonthToString(THIRD_WEEK_IN_MONTH));
+        assertEquals("Fourth",weekInMonthToString(FOURTH_WEEK_IN_MONTH));
+        assertEquals("Last",weekInMonthToString(LAST_WEEK_IN_MONTH));
+
+        //TODO try {
+            //weekInMonthToString(-1);
+            //fail("Invalid week code should throw exception");
+        //} catch (IllegalArgumentException e) {
+        //}
+    }
 }
