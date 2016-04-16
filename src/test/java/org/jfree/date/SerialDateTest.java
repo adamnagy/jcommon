@@ -119,18 +119,44 @@ public class SerialDateTest extends TestCase {
      * locale doesn't use English month names...devise a better test!
      */
     public void testStringToMonthCode() throws Exception {
+        assertEquals(JANUARY,stringToMonthCode("January"));
+        assertEquals(FEBRUARY,stringToMonthCode("February"));
+        assertEquals(MARCH,stringToMonthCode("March"));
+        assertEquals(APRIL,stringToMonthCode("April"));
+        assertEquals(MAY,stringToMonthCode("May"));
+        assertEquals(JUNE,stringToMonthCode("June"));
+        assertEquals(JULY,stringToMonthCode("July"));
+        assertEquals(AUGUST,stringToMonthCode("August"));
+        assertEquals(SEPTEMBER,stringToMonthCode("September"));
+        assertEquals(OCTOBER,stringToMonthCode("October"));
+        assertEquals(NOVEMBER,stringToMonthCode("November"));
+        assertEquals(DECEMBER,stringToMonthCode("December"));
 
-    	/*TODO int m = SerialDate.stringToMonthCode("January");
-        assertEquals(MonthConstants.JANUARY, m);
+        assertEquals(JANUARY,stringToMonthCode(" January "));
+        assertEquals(FEBRUARY,stringToMonthCode(" February "));
+        assertEquals(MARCH,stringToMonthCode(" March "));
+        assertEquals(APRIL,stringToMonthCode(" April "));
+        assertEquals(MAY,stringToMonthCode(" May "));
+        assertEquals(JUNE,stringToMonthCode(" June "));
+        assertEquals(JULY,stringToMonthCode(" July "));
+        assertEquals(AUGUST,stringToMonthCode(" August "));
+        assertEquals(SEPTEMBER,stringToMonthCode(" September "));
+        assertEquals(OCTOBER,stringToMonthCode(" October "));
+        assertEquals(NOVEMBER,stringToMonthCode(" November "));
+        assertEquals(DECEMBER,stringToMonthCode(" December "));
 
-        m = SerialDate.stringToMonthCode(" January ");
-        assertEquals(MonthConstants.JANUARY, m);
-
-        m = SerialDate.stringToMonthCode("Jan");
-        assertEquals(MonthConstants.JANUARY, m);*/
-
-        //TODO monthWithWhitespace = SerialDate.stringToMonthCode(" January ");
-        //assertEquals(MonthConstants.JANUARY, monthWithWhitespace);
+        assertEquals(JANUARY,stringToMonthCode("Jan"));
+        assertEquals(FEBRUARY,stringToMonthCode("Feb"));
+        assertEquals(MARCH,stringToMonthCode("Mar"));
+        assertEquals(APRIL,stringToMonthCode("Apr"));
+        assertEquals(MAY,stringToMonthCode("May"));
+        assertEquals(JUNE,stringToMonthCode("Jun"));
+        assertEquals(JULY,stringToMonthCode("Jul"));
+        assertEquals(AUGUST,stringToMonthCode("Aug"));
+        assertEquals(SEPTEMBER,stringToMonthCode("Sep"));
+        assertEquals(OCTOBER,stringToMonthCode("Oct"));
+        assertEquals(NOVEMBER, stringToMonthCode("Nov"));
+        assertEquals(DECEMBER,stringToMonthCode("Dec"));
 
         assertEquals(JANUARY,stringToMonthCode("1"));
         assertEquals(FEBRUARY,stringToMonthCode("2"));
@@ -146,7 +172,7 @@ public class SerialDateTest extends TestCase {
         assertEquals(DECEMBER,stringToMonthCode("12"));
 
         //TODO assertEquals(-1, stringToMonthCode("0"));
-        // assertEquals(-1, stringToMonthCode("13"));
+        //assertEquals(-1, stringToMonthCode("13"));
 
         assertEquals(-1,stringToMonthCode("Hello"));
 
