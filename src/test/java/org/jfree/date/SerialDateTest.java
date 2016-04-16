@@ -94,15 +94,6 @@ public class SerialDateTest extends TestCase {
     }
 
     /**
-     * A test case for a reported bug, now fixed.
-     */
-    public void testAddMonthsTo1Jan2003() {
-        final SerialDate d1 = SerialDate.createInstance(1, MonthConstants.JANUARY, 2003);
-        final SerialDate d2 = SerialDate.addMonths(0, d1);
-        assertEquals(d2, d1);
-    }
-
-    /**
      * Monday preceding Friday 9 November 2001 should be 5 November.
      */
     public void testMondayPrecedingFriday9Nov2001() {
@@ -380,6 +371,9 @@ public class SerialDateTest extends TestCase {
         assertEquals(30, d4.getDayOfMonth());
         assertEquals(7, d4.getMonth());
         assertEquals(2004, d4.getYYYY());*/
+
+        // A test case for a reported bug, now fixed.
+        assertEquals(d(1, JANUARY, 2003), addMonths(0, d(1, JANUARY, 2003)));
 
         assertEquals(d(1, FEBRUARY, 1900), addMonths(1, d(1, JANUARY, 1900)));
         assertEquals(d(28, FEBRUARY, 1900), addMonths(1, d(31, JANUARY, 1900)));
