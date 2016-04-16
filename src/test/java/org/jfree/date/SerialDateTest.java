@@ -355,13 +355,12 @@ public class SerialDateTest extends TestCase {
      * Miscellaneous tests for the addMonths() method.
      */
     public void testAddMonths() throws Exception {
-/*TODO  SerialDate d1 = SerialDate.createInstance(31, 5, 2004);
+/*TODO
+        assertEquals(d(30, JUNE, 2004), addMonths(1, d(31, MAY, 2004)));
 
-        assertEquals(d(30, JUNE, 2004), addMonths(1, d1));
+        assertEquals(d(31, JULY, 2004), addMonths(2, d(31, MAY, 2004)));
 
-        assertEquals(d(31, JULY, 2004), addMonths(2, d1));
-
-        assertEquals(d(30, JULY, 2004), addMonths(1, addMonths(1, d1)));
+        assertEquals(d(30, JULY, 2004), addMonths(1, addMonths(1, d(31, MAY, 2004))));
 */
 
         // A test case for a reported bug, now fixed.
