@@ -362,7 +362,6 @@ public class SerialDateTest extends TestCase {
         assertEquals(d(28, FEBRUARY, 1900), addMonths(1, d(28, JANUARY, 1900)));
         assertEquals(d(27, FEBRUARY, 1900), addMonths(1, d(27, JANUARY, 1900)));
 
-        // Add two months: 9 Nov 2001 plus two months should be 9 Jan 2002.
         assertEquals(d(9, JANUARY, 2002), addMonths(2, d(9, NOVEMBER, 2001)));
 
         // A test case for a reported bug, now fixed.
@@ -373,10 +372,8 @@ public class SerialDateTest extends TestCase {
 
         assertEquals(d(30, JUNE, 1900), addMonths(5, d(31, JANUARY, 1900)));
         assertEquals(d(30, JUNE, 1901), addMonths(17, d(31, JANUARY, 1900)));
-
         assertEquals(d(29, FEBRUARY, 1904), addMonths(49, d(31, JANUARY, 1900)));
 
-        // Add one month twice
         assertEquals(d(30, JULY, 2004), addMonths(1, addMonths(1, d(31, MAY, 2004))));
     }
 
