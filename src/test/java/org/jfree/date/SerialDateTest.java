@@ -356,21 +356,13 @@ public class SerialDateTest extends TestCase {
      */
     public void testAddMonths() throws Exception {
 /*TODO  SerialDate d1 = SerialDate.createInstance(31, 5, 2004);
-        
-        SerialDate d2 = SerialDate.addMonths(1, d1);
-        assertEquals(30, d2.getDayOfMonth());
-        assertEquals(6, d2.getMonth());
-        assertEquals(2004, d2.getYYYY());
-        
-        SerialDate d3 = SerialDate.addMonths(2, d1);
-        assertEquals(31, d3.getDayOfMonth());
-        assertEquals(7, d3.getMonth());
-        assertEquals(2004, d3.getYYYY());
-        
-        SerialDate d4 = SerialDate.addMonths(1, SerialDate.addMonths(1, d1));
-        assertEquals(30, d4.getDayOfMonth());
-        assertEquals(7, d4.getMonth());
-        assertEquals(2004, d4.getYYYY());*/
+
+        assertEquals(d(30, JUNE, 2004), addMonths(1, d1));
+
+        assertEquals(d(31, JULY, 2004), addMonths(2, d1));
+
+        assertEquals(d(30, JULY, 2004), addMonths(1, addMonths(1, d1)));
+*/
 
         // A test case for a reported bug, now fixed.
         assertEquals(d(1, JANUARY, 2003), addMonths(0, d(1, JANUARY, 2003)));
