@@ -355,12 +355,6 @@ public class SerialDateTest extends TestCase {
      * Miscellaneous tests for the addMonths() method.
      */
     public void testAddMonths() throws Exception {
-        // Add one month twice
-        assertEquals(d(30, JULY, 2004), addMonths(1, addMonths(1, d(31, MAY, 2004))));
-
-        // A test case for a reported bug, now fixed.
-        assertEquals(d(1, JANUARY, 2003), addMonths(0, d(1, JANUARY, 2003)));
-
         assertEquals(d(1, FEBRUARY, 1900), addMonths(1, d(1, JANUARY, 1900)));
         assertEquals(d(28, FEBRUARY, 1900), addMonths(1, d(31, JANUARY, 1900)));
         assertEquals(d(28, FEBRUARY, 1900), addMonths(1, d(30, JANUARY, 1900)));
@@ -374,10 +368,16 @@ public class SerialDateTest extends TestCase {
         // A test case for a reported bug, now fixed.
         assertEquals(d(5, DECEMBER, 2003), addMonths(2, d(5, OCTOBER, 2003)));
 
+        // A test case for a reported bug, now fixed.
+        assertEquals(d(1, JANUARY, 2003), addMonths(0, d(1, JANUARY, 2003)));
+
         assertEquals(d(30, JUNE, 1900), addMonths(5, d(31, JANUARY, 1900)));
         assertEquals(d(30, JUNE, 1901), addMonths(17, d(31, JANUARY, 1900)));
 
         assertEquals(d(29, FEBRUARY, 1904), addMonths(49, d(31, JANUARY, 1900)));
+
+        // Add one month twice
+        assertEquals(d(30, JULY, 2004), addMonths(1, addMonths(1, d(31, MAY, 2004))));
     }
 
     public void testIsValidWeekdayCode() throws Exception {
