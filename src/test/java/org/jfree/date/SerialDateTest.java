@@ -269,8 +269,9 @@ public class SerialDateTest extends TestCase {
     }
 
     public void testIsValidWeekdayCode() {
-        for (int day = 1; day <= 7; day++)
+        for (int day = 1; day <= 7; day++) {
             assertTrue(isValidWeekdayCode(day));
+        }
         assertFalse(isValidWeekdayCode(0));
         assertFalse(isValidWeekdayCode(8));
     }
@@ -334,8 +335,9 @@ public class SerialDateTest extends TestCase {
     }
 
     public void testIsValidMonthCode() {
-        for (int i = 1; i <= 12; i++)
+        for (int i = 1; i <= 12; i++) {
             assertTrue(isValidMonthCode(i));
+        }
         assertFalse(isValidMonthCode(0));
         assertFalse(isValidMonthCode(13));
     }
