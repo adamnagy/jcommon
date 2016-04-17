@@ -102,16 +102,8 @@ public class SerialDateTest extends TestCase {
      * default locale doesn't use English weekday names...devise a better test!
      */
     public void testStringToWeekday() {
-
-        int weekday = SerialDate.stringToWeekdayCode("Wednesday");
-        assertEquals(SerialDate.WEDNESDAY, weekday);
-
         weekday = SerialDate.stringToWeekdayCode(" Wednesday ");
         assertEquals(SerialDate.WEDNESDAY, weekday);
-
-        weekday = SerialDate.stringToWeekdayCode("Wed");
-        assertEquals(SerialDate.WEDNESDAY, weekday);
-
     }
 
     /**
