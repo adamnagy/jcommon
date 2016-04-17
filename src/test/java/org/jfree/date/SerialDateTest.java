@@ -218,16 +218,6 @@ public class SerialDateTest extends TestCase {
     }
 
     /**
-     * Tests the conversion of a month code to a string.
-     */
-    public void testMonthCodeToStringCode() {
-
-        final String test = SerialDate.monthCodeToString(MonthConstants.DECEMBER);
-        assertEquals("December", test);
-
-    }
-
-    /**
      * 1900 is not a leap year.
      */
     public void testIsNotLeapYear1900() {
