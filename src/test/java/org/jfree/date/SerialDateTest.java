@@ -218,20 +218,6 @@ public class SerialDateTest extends TestCase {
     }
 
     /**
-     * 1900 is not a leap year.
-     */
-    public void testIsNotLeapYear1900() {
-        assertTrue(!SerialDate.isLeapYear(1900));
-    }
-
-    /**
-     * 2000 is a leap year.
-     */
-    public void testIsLeapYear2000() {
-        assertTrue(SerialDate.isLeapYear(2000));
-    }
-
-    /**
      * The number of leap years from 1900 up-to-and-including 1899 is 0.
      */
     public void testLeapYearCount1899() {
