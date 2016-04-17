@@ -83,8 +83,8 @@ public class SerialDateTest extends TestCase {
         return new TestSuite(SerialDateTest.class);
     }
 
-    private static SpreadsheetDate d(int day, int month, int year) {
-        return new SpreadsheetDate(day, month, year);
+    private static SerialDate d(int day, int month, int year) {
+        return SerialDate.createInstance(day, month, year);
     }
 
     public void testIsValidWeekdayCode() {
