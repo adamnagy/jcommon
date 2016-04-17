@@ -118,7 +118,7 @@ public class SerialDateTest extends TestCase {
      * Test the conversion of a string to a month.  Note that this test will fail if the default
      * locale doesn't use English month names...devise a better test!
      */
-    public void testStringToMonthCode() throws Exception {
+    public void testStringToMonthCode() {
         assertEquals(JANUARY,stringToMonthCode("January"));
         assertEquals(FEBRUARY,stringToMonthCode("February"));
         assertEquals(MARCH,stringToMonthCode("March"));
@@ -331,7 +331,7 @@ public class SerialDateTest extends TestCase {
     /**
      * Miscellaneous tests for the addMonths() method.
      */
-    public void testAddMonths() throws Exception {
+    public void testAddMonths() {
         assertEquals(d(1, FEBRUARY, 1900), addMonths(1, d(1, JANUARY, 1900)));
         assertEquals(d(28, FEBRUARY, 1900), addMonths(1, d(31, JANUARY, 1900)));
         assertEquals(d(28, FEBRUARY, 1900), addMonths(1, d(30, JANUARY, 1900)));
@@ -354,14 +354,14 @@ public class SerialDateTest extends TestCase {
         assertEquals(d(30, JULY, 2004), addMonths(1, addMonths(1, d(31, MAY, 2004))));
     }
 
-    public void testIsValidWeekdayCode() throws Exception {
+    public void testIsValidWeekdayCode() {
         for (int day = 1; day <= 7; day++)
             assertTrue(isValidWeekdayCode(day));
         assertFalse(isValidWeekdayCode(0));
         assertFalse(isValidWeekdayCode(8));
     }
 
-    public void testStringToWeekdayCode() throws Exception {
+    public void testStringToWeekdayCode() {
         assertEquals(-1, stringToWeekdayCode("Hello"));
         assertEquals(MONDAY, stringToWeekdayCode("Monday"));
         assertEquals(MONDAY, stringToWeekdayCode("Mon"));
@@ -408,14 +408,14 @@ public class SerialDateTest extends TestCase {
         //assertEquals(SUNDAY, stringToWeekdayCode("sun"));
     }
 
-    public void testIsValidMonthCode() throws Exception {
+    public void testIsValidMonthCode() {
         for (int i = 1; i <= 12; i++)
             assertTrue(isValidMonthCode(i));
         assertFalse(isValidMonthCode(0));
         assertFalse(isValidMonthCode(13));
     }
 
-    public void testMonthToQuarter() throws Exception {
+    public void testMonthToQuarter() {
         assertEquals(1, monthCodeToQuarter(JANUARY));
         assertEquals(1, monthCodeToQuarter(FEBRUARY));
         assertEquals(1, monthCodeToQuarter(MARCH));
@@ -448,7 +448,7 @@ public class SerialDateTest extends TestCase {
         }
     }
 
-    public void testMonthCodeToString() throws Exception {
+    public void testMonthCodeToString() {
         assertEquals("January", monthCodeToString(JANUARY));
         assertEquals("February", monthCodeToString(FEBRUARY));
         assertEquals("March", monthCodeToString(MARCH));
@@ -494,14 +494,14 @@ public class SerialDateTest extends TestCase {
         }
     }
 
-    public void testIsValidWeekInMonthCode() throws Exception {
+    public void testIsValidWeekInMonthCode() {
         for (int w = 0; w <= 4; w++) {
             assertTrue(isValidWeekInMonthCode(w));
         }
         assertFalse(isValidWeekInMonthCode(5));
     }
 
-    public void testIsLeapYear() throws Exception {
+    public void testIsLeapYear() {
         assertFalse(isLeapYear(1900));
         assertFalse(isLeapYear(1901));
         assertFalse(isLeapYear(1902));
@@ -516,7 +516,7 @@ public class SerialDateTest extends TestCase {
         assertFalse(isLeapYear(2100));
     }
 
-    public void testLeapYearCount() throws Exception {
+    public void testLeapYearCount() {
         assertEquals(0, leapYearCount(1900));
         assertEquals(0, leapYearCount(1901));
         assertEquals(0, leapYearCount(1902));
@@ -534,7 +534,7 @@ public class SerialDateTest extends TestCase {
         assertEquals(122, leapYearCount(2401));
     }
 
-    public void testLastDayOfMonth() throws Exception {
+    public void testLastDayOfMonth() {
         assertEquals(31, lastDayOfMonth(JANUARY, 1901));
         assertEquals(28, lastDayOfMonth(FEBRUARY, 1901));
         assertEquals(31, lastDayOfMonth(MARCH, 1901));
@@ -550,7 +550,7 @@ public class SerialDateTest extends TestCase {
         assertEquals(29, lastDayOfMonth(FEBRUARY, 1904));
     }
 
-    public void testAddDays() throws Exception {
+    public void testAddDays() {
         SerialDate newYears = d(1, JANUARY, 1900);
         assertEquals(d(2, JANUARY, 1900), addDays(1, newYears));
         assertEquals(d(1, FEBRUARY, 1900), addDays(31, newYears));
@@ -562,14 +562,14 @@ public class SerialDateTest extends TestCase {
         return new SpreadsheetDate(day, month, year);
     }
 
-    public void testAddYears() throws Exception {
+    public void testAddYears() {
         assertEquals(d(1, JANUARY, 1901), addYears(1, d(1, JANUARY, 1900)));
         assertEquals(d(28, FEBRUARY, 1905), addYears(1, d(29, FEBRUARY, 1904)));
         assertEquals(d(28, FEBRUARY, 1905), addYears(1, d(28, FEBRUARY, 1904)));
         assertEquals(d(28, FEBRUARY, 1904), addYears(1, d(28, FEBRUARY, 1903)));
     }
 
-    public void testGetPreviousDayOfWeek() throws Exception {
+    public void testGetPreviousDayOfWeek() {
         assertEquals(d(5, NOVEMBER, 2001), getPreviousDayOfWeek(MONDAY, d(9, NOVEMBER, 2001)));
 
         assertEquals(d(24, FEBRUARY, 2006), getPreviousDayOfWeek(FRIDAY, d(1, MARCH, 2006)));
@@ -584,7 +584,7 @@ public class SerialDateTest extends TestCase {
         }
     }
 
-    public void testGetFollowingDayOfWeek() throws Exception {
+    public void testGetFollowingDayOfWeek() {
         assertEquals(d(12, NOVEMBER, 2001), getFollowingDayOfWeek(MONDAY, d(9, NOVEMBER, 2001)));
 
         //assertEquals(d(1, JANUARY, 2005),getFollowingDayOfWeek(SATURDAY, d(25, DECEMBER, 2004)));
@@ -598,7 +598,7 @@ public class SerialDateTest extends TestCase {
         }
     }
 
-    public void testGetNearestDayOfWeek() throws Exception {
+    public void testGetNearestDayOfWeek() {
         assertEquals(d(12, NOVEMBER, 2001), getNearestDayOfWeek(MONDAY, d(9, NOVEMBER, 2001)));
         assertEquals(d(19, JANUARY, 1970), getNearestDayOfWeek(MONDAY, d(22, JANUARY, 1970)));
 
@@ -665,7 +665,7 @@ public class SerialDateTest extends TestCase {
         }
     }
 
-    public void testEndOfCurrentMonth() throws Exception {
+    public void testEndOfCurrentMonth() {
         SerialDate d = SerialDate.createInstance(2);
         assertEquals(d(31, JANUARY, 2006), d.getEndOfCurrentMonth(d(1, JANUARY, 2006)));
         assertEquals(d(28, FEBRUARY, 2006), d.getEndOfCurrentMonth(d(1, FEBRUARY, 2006)));
@@ -682,7 +682,7 @@ public class SerialDateTest extends TestCase {
         assertEquals(d(29, FEBRUARY, 2008), d.getEndOfCurrentMonth(d(1, FEBRUARY, 2008)));
     }
 
-    public void testWeekInMonthToString() throws Exception {
+    public void testWeekInMonthToString() {
         assertEquals("First",weekInMonthToString(FIRST_WEEK_IN_MONTH));
         assertEquals("Second",weekInMonthToString(SECOND_WEEK_IN_MONTH));
         assertEquals("Third",weekInMonthToString(THIRD_WEEK_IN_MONTH));
@@ -696,7 +696,7 @@ public class SerialDateTest extends TestCase {
         //}
     }
 
-    public void testRelativeToString() throws Exception {
+    public void testRelativeToString() {
         assertEquals("Preceding",relativeToString(PRECEDING));
         assertEquals("Nearest",relativeToString(NEAREST));
         assertEquals("Following",relativeToString(FOLLOWING));
@@ -708,7 +708,7 @@ public class SerialDateTest extends TestCase {
         // }
     }
 
-    public void testCreateInstanceFromDDMMYYY() throws Exception {
+    public void testCreateInstanceFromDDMMYYY() {
         SerialDate date = createInstance(1, JANUARY, 1900);
         assertEquals(1,date.getDayOfMonth());
         assertEquals(JANUARY,date.getMonth());
@@ -716,12 +716,12 @@ public class SerialDateTest extends TestCase {
         assertEquals(2,date.toSerial());
     }
 
-    public void testCreateInstanceFromSerial() throws Exception {
+    public void testCreateInstanceFromSerial() {
         assertEquals(d(1, JANUARY, 1900),createInstance(2));
         assertEquals(d(1, JANUARY, 1901), createInstance(367));
     }
 
-    public void testCreateInstanceFromJavaDate() throws Exception {
+    public void testCreateInstanceFromJavaDate() {
         assertEquals(d(1, JANUARY, 1900),
             createInstance(new GregorianCalendar(1900,0,1).getTime()));
         assertEquals(d(1, JANUARY, 2006),
