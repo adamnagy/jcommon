@@ -346,7 +346,7 @@ public class SerialDateTest extends TestCase {
         assertFalse(isValidMonthCode(13));
     }
 
-    public void testMonthToQuarter() {
+    public void testMonthCodeToQuarter() {
         assertEquals(1, monthCodeToQuarter(JANUARY));
         assertEquals(1, monthCodeToQuarter(FEBRUARY));
         assertEquals(1, monthCodeToQuarter(MARCH));
@@ -607,7 +607,7 @@ public class SerialDateTest extends TestCase {
         }
     }
 
-    public void testEndOfCurrentMonth() {
+    public void testGetEndOfCurrentMonth() {
         SerialDate d = SerialDate.createInstance(2);
         assertEquals(d(31, JANUARY, 2006), d.getEndOfCurrentMonth(d(1, JANUARY, 2006)));
         assertEquals(d(28, FEBRUARY, 2006), d.getEndOfCurrentMonth(d(1, FEBRUARY, 2006)));
@@ -652,7 +652,7 @@ public class SerialDateTest extends TestCase {
         // }
     }
 
-    public void testCreateInstanceFromDDMMYYY() {
+    public void testCreateInstanceFromDDMMYYYY() {
         SerialDate date = createInstance(1, JANUARY, 1900);
         assertEquals(1,date.getDayOfMonth());
         assertEquals(JANUARY,date.getMonth());
