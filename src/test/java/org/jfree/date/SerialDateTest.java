@@ -363,19 +363,22 @@ public class SerialDateTest extends TestCase {
         try {
             monthCodeToQuarter(-1);
             fail("Invalid Month Code should throw exception");
-        } catch (IllegalArgumentException e) {
+        }
+        catch (IllegalArgumentException e) {
         }
 
         try {
             monthCodeToQuarter(0);
             fail("Invalid Month Code should throw exception");
-        } catch (IllegalArgumentException e) {
+        }
+        catch (IllegalArgumentException e) {
         }
 
         try {
             monthCodeToQuarter(13);
             fail("Invalid Month Code should throw exception");
-        } catch (IllegalArgumentException e) {
+        }
+        catch (IllegalArgumentException e) {
         }
     }
 
@@ -409,19 +412,22 @@ public class SerialDateTest extends TestCase {
         try {
             monthCodeToString(-1);
             fail("Invalid month code should throw exception");
-        } catch (IllegalArgumentException e) {
+        }
+        catch (IllegalArgumentException e) {
         }
 
         try {
             monthCodeToString(0);
             fail("Invalid month code should throw exception");
-        } catch (IllegalArgumentException e) {
+        }
+        catch (IllegalArgumentException e) {
         }
 
         try {
             monthCodeToString(13);
             fail("Invalid month code should throw exception");
-        } catch (IllegalArgumentException e) {
+        }
+        catch (IllegalArgumentException e) {
         }
     }
 
@@ -513,7 +519,8 @@ public class SerialDateTest extends TestCase {
         try {
             getPreviousDayOfWeek(-1, d(1, JANUARY, 2006));
             fail("Invalid day of week code should throw exception");
-        } catch (IllegalArgumentException e) {
+        }
+        catch (IllegalArgumentException e) {
         }
     }
 
@@ -527,7 +534,8 @@ public class SerialDateTest extends TestCase {
         try {
             getFollowingDayOfWeek(-1, d(1, JANUARY, 2006));
             fail("Invalid day of week code should throw exception");
-        } catch (IllegalArgumentException e) {
+        }
+        catch (IllegalArgumentException e) {
         }
     }
 
@@ -594,7 +602,8 @@ public class SerialDateTest extends TestCase {
         try {
             getNearestDayOfWeek(-1, d(1, JANUARY, 2006));
             fail("Invalid day of week code should throw exception");
-        } catch (IllegalArgumentException e) {
+        }
+        catch (IllegalArgumentException e) {
         }
     }
 
@@ -625,7 +634,8 @@ public class SerialDateTest extends TestCase {
         //TODO try {
             //weekInMonthToString(-1);
             //fail("Invalid week code should throw exception");
-        //} catch (IllegalArgumentException e) {
+        //}
+        //catch (IllegalArgumentException e) {
         //}
     }
 
@@ -637,7 +647,8 @@ public class SerialDateTest extends TestCase {
         //TODO try {
             //relativeToString(-1000);
            	//fail("Invalid relative code should throw exception");
-        // } catch (IllegalArgumentException e) {
+        // }
+        //catch (IllegalArgumentException e) {
         // }
     }
 
