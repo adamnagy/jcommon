@@ -87,6 +87,14 @@ public class SerialDateTest extends TestCase {
         return new SpreadsheetDate(day, month, year);
     }
 
+    public void testIsValidWeekdayCode() {
+        for (int day = 1; day <= 7; day++) {
+            assertTrue(isValidWeekdayCode(day));
+        }
+        assertFalse(isValidWeekdayCode(0));
+        assertFalse(isValidWeekdayCode(8));
+    }
+
     /**
      * Problem that the conversion of days to strings returns the right result.  Actually, this 
      * result depends on the Locale so this test needs to be modified.
@@ -99,6 +107,64 @@ public class SerialDateTest extends TestCase {
         assertEquals("Thursday", weekdayCodeToString(THURSDAY));
         assertEquals("Friday", weekdayCodeToString(FRIDAY));
         assertEquals("Saturday", weekdayCodeToString(SATURDAY));
+    }
+
+    /**
+     * Test the conversion of a string to a weekday.  Note that this test will fail if the
+     * default locale doesn't use English weekday names...devise a better test!
+     */
+    public void testStringToWeekdayCode() {
+        assertEquals(-1, stringToWeekdayCode("Hello"));
+        assertEquals(MONDAY, stringToWeekdayCode("Monday"));
+        assertEquals(MONDAY, stringToWeekdayCode(" Monday "));
+        assertEquals(MONDAY, stringToWeekdayCode("Mon"));
+        //TODO assertEquals(MONDAY,stringToWeekdayCode("monday"));
+        //assertEquals(MONDAY,stringToWeekdayCode("MONDAY"));
+        //assertEquals(MONDAY, stringToWeekdayCode("mon"));
+
+        assertEquals(TUESDAY, stringToWeekdayCode("Tuesday"));
+        assertEquals(TUESDAY, stringToWeekdayCode(" Tuesday "));
+        assertEquals(TUESDAY, stringToWeekdayCode("Tue"));
+        //assertEquals(TUESDAY,stringToWeekdayCode("tuesday"));
+        //assertEquals(TUESDAY,stringToWeekdayCode("TUESDAY"));
+        //assertEquals(TUESDAY, stringToWeekdayCode("tue"));
+        //assertEquals(TUESDAY, stringToWeekdayCode("tues"));
+
+        assertEquals(WEDNESDAY, stringToWeekdayCode("Wednesday"));
+        assertEquals(WEDNESDAY, stringToWeekdayCode(" Wednesday "));
+        assertEquals(WEDNESDAY, stringToWeekdayCode("Wed"));
+        //assertEquals(WEDNESDAY,stringToWeekdayCode("wednesday"));
+        //assertEquals(WEDNESDAY,stringToWeekdayCode("WEDNESDAY"));
+        //assertEquals(WEDNESDAY, stringToWeekdayCode("wed"));
+
+        assertEquals(THURSDAY, stringToWeekdayCode("Thursday"));
+        assertEquals(THURSDAY, stringToWeekdayCode(" Thursday "));
+        assertEquals(THURSDAY, stringToWeekdayCode("Thu"));
+        //assertEquals(THURSDAY,stringToWeekdayCode("thursday"));
+        //assertEquals(THURSDAY,stringToWeekdayCode("THURSDAY"));
+        //assertEquals(THURSDAY, stringToWeekdayCode("thu"));
+        //assertEquals(THURSDAY, stringToWeekdayCode("thurs"));
+
+        assertEquals(FRIDAY, stringToWeekdayCode("Friday"));
+        assertEquals(FRIDAY, stringToWeekdayCode(" Friday "));
+        assertEquals(FRIDAY, stringToWeekdayCode("Fri"));
+        //assertEquals(FRIDAY,stringToWeekdayCode("friday"));
+        //assertEquals(FRIDAY,stringToWeekdayCode("FRIDAY"));
+        //assertEquals(FRIDAY, stringToWeekdayCode("fri"));
+
+        assertEquals(SATURDAY, stringToWeekdayCode("Saturday"));
+        assertEquals(SATURDAY, stringToWeekdayCode(" Saturday "));
+        assertEquals(SATURDAY, stringToWeekdayCode("Sat"));
+        //assertEquals(SATURDAY,stringToWeekdayCode("saturday"));
+        //assertEquals(SATURDAY,stringToWeekdayCode("SATURDAY"));
+        //assertEquals(SATURDAY, stringToWeekdayCode("sat"));
+
+        assertEquals(SUNDAY, stringToWeekdayCode("Sunday"));
+        assertEquals(SUNDAY, stringToWeekdayCode(" Sunday "));
+        assertEquals(SUNDAY, stringToWeekdayCode("Sun"));
+        //assertEquals(SUNDAY,stringToWeekdayCode("sunday"));
+        //assertEquals(SUNDAY,stringToWeekdayCode("SUNDAY"));
+        //assertEquals(SUNDAY, stringToWeekdayCode("sun"));
     }
 
     /**
@@ -270,72 +336,6 @@ public class SerialDateTest extends TestCase {
         assertEquals(d(29, FEBRUARY, 1904), addMonths(49, d(31, JANUARY, 1900)));
 
         assertEquals(d(30, JULY, 2004), addMonths(1, addMonths(1, d(31, MAY, 2004))));
-    }
-
-    public void testIsValidWeekdayCode() {
-        for (int day = 1; day <= 7; day++) {
-            assertTrue(isValidWeekdayCode(day));
-        }
-        assertFalse(isValidWeekdayCode(0));
-        assertFalse(isValidWeekdayCode(8));
-    }
-
-    /**
-     * Test the conversion of a string to a weekday.  Note that this test will fail if the
-     * default locale doesn't use English weekday names...devise a better test!
-     */
-    public void testStringToWeekdayCode() {
-        assertEquals(-1, stringToWeekdayCode("Hello"));
-        assertEquals(MONDAY, stringToWeekdayCode("Monday"));
-        assertEquals(MONDAY, stringToWeekdayCode(" Monday "));
-        assertEquals(MONDAY, stringToWeekdayCode("Mon"));
-        //TODO assertEquals(MONDAY,stringToWeekdayCode("monday"));
-        //assertEquals(MONDAY,stringToWeekdayCode("MONDAY"));
-        //assertEquals(MONDAY, stringToWeekdayCode("mon"));
-
-        assertEquals(TUESDAY, stringToWeekdayCode("Tuesday"));
-        assertEquals(TUESDAY, stringToWeekdayCode(" Tuesday "));
-        assertEquals(TUESDAY, stringToWeekdayCode("Tue"));
-        //assertEquals(TUESDAY,stringToWeekdayCode("tuesday"));
-        //assertEquals(TUESDAY,stringToWeekdayCode("TUESDAY"));
-        //assertEquals(TUESDAY, stringToWeekdayCode("tue"));
-        //assertEquals(TUESDAY, stringToWeekdayCode("tues"));
-
-        assertEquals(WEDNESDAY, stringToWeekdayCode("Wednesday"));
-        assertEquals(WEDNESDAY, stringToWeekdayCode(" Wednesday "));
-        assertEquals(WEDNESDAY, stringToWeekdayCode("Wed"));
-        //assertEquals(WEDNESDAY,stringToWeekdayCode("wednesday"));
-        //assertEquals(WEDNESDAY,stringToWeekdayCode("WEDNESDAY"));
-        //assertEquals(WEDNESDAY, stringToWeekdayCode("wed"));
-
-        assertEquals(THURSDAY, stringToWeekdayCode("Thursday"));
-        assertEquals(THURSDAY, stringToWeekdayCode(" Thursday "));
-        assertEquals(THURSDAY, stringToWeekdayCode("Thu"));
-        //assertEquals(THURSDAY,stringToWeekdayCode("thursday"));
-        //assertEquals(THURSDAY,stringToWeekdayCode("THURSDAY"));
-        //assertEquals(THURSDAY, stringToWeekdayCode("thu"));
-        //assertEquals(THURSDAY, stringToWeekdayCode("thurs"));
-
-        assertEquals(FRIDAY, stringToWeekdayCode("Friday"));
-        assertEquals(FRIDAY, stringToWeekdayCode(" Friday "));
-        assertEquals(FRIDAY, stringToWeekdayCode("Fri"));
-        //assertEquals(FRIDAY,stringToWeekdayCode("friday"));
-        //assertEquals(FRIDAY,stringToWeekdayCode("FRIDAY"));
-        //assertEquals(FRIDAY, stringToWeekdayCode("fri"));
-
-        assertEquals(SATURDAY, stringToWeekdayCode("Saturday"));
-        assertEquals(SATURDAY, stringToWeekdayCode(" Saturday "));
-        assertEquals(SATURDAY, stringToWeekdayCode("Sat"));
-        //assertEquals(SATURDAY,stringToWeekdayCode("saturday"));
-        //assertEquals(SATURDAY,stringToWeekdayCode("SATURDAY"));
-        //assertEquals(SATURDAY, stringToWeekdayCode("sat"));
-
-        assertEquals(SUNDAY, stringToWeekdayCode("Sunday"));
-        assertEquals(SUNDAY, stringToWeekdayCode(" Sunday "));
-        assertEquals(SUNDAY, stringToWeekdayCode("Sun"));
-        //assertEquals(SUNDAY,stringToWeekdayCode("sunday"));
-        //assertEquals(SUNDAY,stringToWeekdayCode("SUNDAY"));
-        //assertEquals(SUNDAY, stringToWeekdayCode("sun"));
     }
 
     public void testIsValidMonthCode() {
