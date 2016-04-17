@@ -83,6 +83,10 @@ public class SerialDateTest extends TestCase {
         return new TestSuite(SerialDateTest.class);
     }
 
+    private static SpreadsheetDate d(int day, int month, int year) {
+        return new SpreadsheetDate(day, month, year);
+    }
+
     /**
      * Problem that the conversion of days to strings returns the right result.  Actually, this 
      * result depends on the Locale so this test needs to be modified.
@@ -485,10 +489,6 @@ public class SerialDateTest extends TestCase {
         assertEquals(d(1, FEBRUARY, 1900), addDays(31, newYears));
         assertEquals(d(1, JANUARY, 1901), addDays(365, newYears));
         assertEquals(d(31, DECEMBER, 1904), addDays(5 * 365, newYears));
-    }
-
-    private static SpreadsheetDate d(int day, int month, int year) {
-        return new SpreadsheetDate(day, month, year);
     }
 
     public void testAddYears() {
