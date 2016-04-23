@@ -83,6 +83,7 @@ import java.util.GregorianCalendar;
  *
  * @author David Gilbert
  */
+//TODO Update IllegalArgumentExceptions' message to be consistent class wide.
 public abstract class SerialDate implements Comparable, 
                                             Serializable, 
                                             MonthConstants {
