@@ -141,7 +141,6 @@ public class SerialDateTest extends TestCase {
             }
         }
 
-
         assertEquals(-1, stringToWeekdayCode("Hello"));
     }
 
@@ -306,6 +305,19 @@ public class SerialDateTest extends TestCase {
         assertEquals("October", monthCodeToString(OCTOBER));
         assertEquals("November", monthCodeToString(NOVEMBER));
         assertEquals("December", monthCodeToString(DECEMBER));
+
+        assertEquals("January", monthCodeToString(JANUARY, false));
+        assertEquals("February", monthCodeToString(FEBRUARY, false));
+        assertEquals("March", monthCodeToString(MARCH, false));
+        assertEquals("April", monthCodeToString(APRIL, false));
+        assertEquals("May", monthCodeToString(MAY, false));
+        assertEquals("June", monthCodeToString(JUNE, false));
+        assertEquals("July", monthCodeToString(JULY, false));
+        assertEquals("August", monthCodeToString(AUGUST, false));
+        assertEquals("September", monthCodeToString(SEPTEMBER, false));
+        assertEquals("October", monthCodeToString(OCTOBER, false));
+        assertEquals("November", monthCodeToString(NOVEMBER, false));
+        assertEquals("December", monthCodeToString(DECEMBER, false));
 
         assertEquals("Jan", monthCodeToString(JANUARY, true));
         assertEquals("Feb", monthCodeToString(FEBRUARY, true));
