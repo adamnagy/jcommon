@@ -56,7 +56,6 @@ import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.util.GregorianCalendar;
 
-import com.sun.deploy.security.MozillaMyKeyStore;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
